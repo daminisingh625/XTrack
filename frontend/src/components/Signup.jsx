@@ -3,8 +3,19 @@ export default function Signup(){
         <>
         <div className="signup form" >
                 <form action="">
-                    <input type="text" name="name"/><input type="email" name="email" />
+                    
+                
+                    <label> Enter your name </label>
+                    <input type="text" name="name"/>
+
+                    <label> Enter your name </label>
+                    <input type="email" name="email" />
+
+                    <label> Enter your name </label>
                     <input type="password" name="password"/>
+
+                    
+                   
                 </form>
         </div>
         </>

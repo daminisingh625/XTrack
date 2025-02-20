@@ -1,0 +1,130 @@
+  /* Login Container */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 25vh;
+  }
+  
+  /* Login Form */
+  .login-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .login-form:hover {
+    transform: scale(1.02);
+  }
+  
+  .login-form h2 {
+    color: #34495e;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 0.5rem 0;
+    border: 1px solid #dcdde1;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .login-form input:focus {
+    border-color: #2980b9;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1rem;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #1c5980;
+  }
+  /*Styling for signup form*/
+  /* General Styles */
+body {
+  background-color: #f4f7fc;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Signup Container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 20vh;
+}
+
+/* Signup Form */
+.signup-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.signup-form:hover {
+  transform: scale(1.02);
+}
+
+.signup-form h2 {
+  color: #34495e;
+  margin-bottom: 1.5rem;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border: 1px solid #dcdde1;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.signup-form input:focus {
+  border-color: #2980b9;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+  background-color: #1c5980;
+}

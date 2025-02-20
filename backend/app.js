@@ -6,6 +6,7 @@ const cors = require("cors");
 const session = require("express-session")
 const passport = require("passport");
 const userAuth = require("./routes/userAuth")
+const addExpense = require("./routes/addExpense")
 
 
 async function main(){
@@ -43,6 +44,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/", userAuth)
+app.use("/user", addExpense )
+
 app.get("/test", (req, res) => {
     res.json({message: "This is the message"})
 })

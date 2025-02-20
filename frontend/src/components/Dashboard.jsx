@@ -1,8 +1,11 @@
+import ExpenseAdder from "./ExpenseAdder";
+import ExpenseTable from "./ExpenseTable";
 export default function Dashboard(){
     return (
     <>
-    <h1>This is dashhy</h1>
-    <button>Add Expense</button>
+    <button>hi</button>
+    <ExpenseAdder/>
+    <ExpenseTable/>
     </>
     )
 }

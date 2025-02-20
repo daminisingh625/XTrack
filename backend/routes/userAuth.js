@@ -78,13 +78,9 @@ router.post("/login", async (req, res) => {
 
     // Find the user in the database
     const user = await User.findOne({ email });
-    // console.log(user)
-    // If user not found
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
-
-    // Compare the provided password with the stored hashed password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
@@ -94,7 +90,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email }, // Payload
       process.env.JWT_SECRET, // Secret key from .env
-      { expiresIn: process.env.JWT_EXPIRES_IN || "1h" } // Token expiration
+      { expiresIn: process.env.JWT_EXPIRES_IN || "2h" } // Token expiration
     );
 
     // Respond with the token and user info

@@ -5,26 +5,32 @@ import Login from "./components/Login"
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar"
-import Welcome from "./components/Welcome";
+import Sidebar from "./components/Sidebar";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <>
+
       <div>
         <header>
         <Navbar/>
         </header>
+        
+        <Sidebar/>
+           
+           <div className="page-content">
         <Routes>
           <Route path="/" element={<Welcome/>}/>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Login/>}/>
         </Routes>
+      
+        
         <footer>
-
         </footer>
       </div>
     
-    </>
+   </div>
   );
 }
 

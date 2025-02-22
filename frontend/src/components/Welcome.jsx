@@ -1,5 +1,19 @@
+import { useEffect } from "react";
 import "../views/welcome.css"
+import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 export default function Welcome(){
+    const navigate = useNavigate();
+    
+    const handleSubmit = () => {
+        const isAuthenticated = localStorage.getItem("authtoken");
+        
+        if(!isAuthenticated){
+            navigate("/signin");
+        }else{
+            navigate("/budget-planner");
+        }
+    }
     return (
         <>
             <div className="welcome-container">
@@ -10,7 +24,7 @@ export default function Welcome(){
                 <p>Ever wondered where all your money mysteriously disappears by the end of the month? 🧐 Well, say hello to 
                 XTrack – your ultimate money sidekick! </p>
                 </div>
-                <button>Plan your budget</button>
+                <button onClick={handleSubmit}>Plan your budget</button>
             </div>
         </>
 

@@ -108,6 +108,9 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 });
-
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.json({ message: "Logged out successfully" });
+});
 
 module.exports = router; 

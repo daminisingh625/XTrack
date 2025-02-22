@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../views/Home.css"
 
@@ -9,7 +9,8 @@ export default function Home() {
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("user"));
         if (!currentUser) {
-            navigate("/login"); // Redirect to login if user is not logged in
+            console.log(currentUser)
+            navigate("/signin"); // Redirect to signin if user is not logged in
         } else {
             setUser(currentUser);
         }

@@ -1,0 +1,61 @@
+/* MoneySpent.css */
+.money-spent {
+    padding: 20px;
+    background-color: #f4f4fc;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+    text-align: center;
+    min-height: 40%;
+}
+
+.money-spent h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.spent-amount {
+    color: #e63946;
+    font-weight: bold;
+}
+
+.total-amount {
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.grid-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item h2 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #4a4a6a;
+}
+
+.grid-item p {
+    font-size: 1rem;
+    color: #222;
+    font-weight: 500;
+}

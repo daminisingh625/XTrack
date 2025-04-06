@@ -5,6 +5,9 @@
     flex-direction: column;
     padding: 2rem;
 }
+.dashboard-container{
+    padding-top: 2rem;
+}
 .home-button{
     background-color: #2980b9;
     color: white;

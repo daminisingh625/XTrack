@@ -3,10 +3,14 @@ const router = express.Router();
 const {isLoggedIn} = require("../middleware")
 const customExpense = require("../models/customExpense");
 const { rawListeners } = require("../models/user");
+const user = require("../models/user");
 
 router.get("/expenses", async (req, res) => {
     try {
       // Fetch all expenses from the database
+      console.log("Logged-in User:", req.user); // 🔹 Log full user details
+        console.log("User ID:", req.user?._id);  // 🔹 Log only the user ID
+
       const expenses = await customExpense.find();
       console.log(expenses);  // Debugging
       if (!expenses) {
@@ -24,6 +28,7 @@ router.get("/expenses", async (req, res) => {
 router.post("/addexpense",async(req, res) =>{
     const {expenseName, expenseAmount, expenseCategory, expenseDate} = req.body;
     const newExpense = new customExpense({
+        user_id: user._id,
         expenseName,
         expenseAmount, 
         expenseCategory, 

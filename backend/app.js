@@ -9,6 +9,11 @@ const userAuth = require("./routes/userAuth")
 const addExpense = require("./routes/addExpense")
 
 
+
+console.log("SUPABASE_URL:", process.env.SUPABASE_URL); // Debugging
+console.log("SUPABASE_ANON_KEY:", process.env.SUPABASE_ANON_KEY); // Debugging
+
+
 async function main(){
     await mongoose.connect("mongodb://127.0.0.1:27017/ExpenseTracker");
 }
@@ -34,7 +39,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(
     session({
-      secret: "your_secret_key", // Change this to a strong secret
+      secret: "strongkey", 
       resave: false,
       saveUninitialized: false,
     })

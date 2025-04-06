@@ -1,3 +1,7 @@
 node_modules/
 
-.env
+# Ignore supabaseClient.js in frontend/src
+frontend/src/supabaseClient.js
+
+# Ignore .env file in backend
+backend/.env

@@ -1,64 +1,52 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "../pages/Signup";
+import Login from "../pages/Login";
 import "./App.css";
-import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Home from "./components/Home";
+import MainSection from "../pages/MainSection";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Welcome from "./components/Welcome";
-import BudgetPlanner from "./components/BudgetPlanner";
-import Body from "./components/Body";
+import { supabase } from "./superbaseClient";
+// import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  
   useEffect(() => {
-    const checkAuth = () => {
-      const token = localStorage.getItem("authToken");
-      setIsAuthenticated(!!token);
-      console.log("Token found:", token);
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsAuthenticated(!!session);
     };
-  
-    checkAuth(); // Run once on component mount
-  
-    // Listen for storage changes
-    window.addEventListener("storageChange", checkAuth);
-  
+
+    checkAuth();
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+    });
+
     return () => {
-      window.removeEventListener("storageChange", checkAuth);
+      listener.subscription.unsubscribe();
     };
   }, []);
-  
 
   return (
     <div>
-      <header>
-        <Navbar />
-      </header>
-       
-       <div className="app-body">
-        {/*App sidebar */}
-    
-       {isAuthenticated ? <Sidebar className="App-sidebar" /> : null}
-       {/*main content */}
-       <Body className="App-body"/>
-       </div>
+      <ToastContainer />
+      {isAuthenticated && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
-      <footer>
-
-      </footer>
+        <Route
+          path="*"
+          element={isAuthenticated ? <MainSection /> : <Login />}
+        />
+      </Routes>
     </div>
   );
 }
 
 export default App;
-{/* <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/budget-planner" element={<BudgetPlanner />} />
-        </Routes> */}

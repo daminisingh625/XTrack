@@ -1,0 +1,9 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.budget-planner{
+    border: 2px solid white;
+    margin: 2rem;
+    min-height: 90vh ;
+}

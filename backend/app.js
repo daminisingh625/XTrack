@@ -39,7 +39,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(
     session({
-      secret: "strongkey", 
+      secret: process.env.SESSION_KEY, 
       resave: false,
       saveUninitialized: false,
     })

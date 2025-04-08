@@ -1,2 +1,2 @@
-# TrackIt
-It is an Budget Management and Expense Tracking application.
+# XTrack
+It is a budget management and expense tracking application.

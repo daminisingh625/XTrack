@@ -53,7 +53,7 @@ function Signup() {
           onChange={handleChange}
           required
         />
-        <button type="submit" className="signup-button">
+        <button type="submit" className="signup-button" onSubmit={handleSignup}>
           Sign Up
         </button>
       </form>

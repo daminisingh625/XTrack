@@ -1,7 +1,7 @@
- import "./style.css";
+import "./style.css";
 import { useState, useEffect } from "react";
-import { supabase } from "../superbaseClient"; // Ensure correct import
-import "react-toastify/dist/ReactToastify.css";
+import { supabase } from "../superbaseClient";
+import {ToastContainer, toast}  from "react-toastify"
 
 const ExpenseAdder = () => {
     const [expense, setExpense] = useState({
@@ -14,16 +14,22 @@ const ExpenseAdder = () => {
 
     const [userId, setUserId] = useState("");
 
-    // Get user_id from localStorage when component loads
+    // ✅ Get user_id from Supabase session
     useEffect(() => {
-        const storedUserId = localStorage.getItem("user_id");
-        console.log("User ID:", storedUserId);
-        if (storedUserId) {
-            setUserId(storedUserId);
-        } else {
-            console.log("User is not authenticated")
-            // toast.error("User not authenticated!");
-        }
+        const getUser = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const response = await supabase.auth.getSession();
+            console.log("hehe:",response)
+            if (session?.user) {
+                console.log("Supabase User ID:", session.user.id);
+                setUserId(session.user.id);
+            } else {
+                console.log("User is not authenticated");
+                // toast.error("User not authenticated!");
+            }
+        };
+
+        getUser();
     }, []);
 
     const handleChange = (event) => {
@@ -34,7 +40,7 @@ const ExpenseAdder = () => {
         e.preventDefault();
 
         if (!userId) {
-            // toast.error("User ID is missing!");
+            console.log("User ID is missing!");
             return;
         }
 
@@ -42,16 +48,16 @@ const ExpenseAdder = () => {
             console.log("Adding expense:", expense);
 
             const newExpense = {
-                user_id: userId, // ✅ Ensuring user_id is included
-                name: expense.expenseName, // ✅ Matching input field names
-                amount: parseFloat(expense.expenseAmount), // Convert to number
+                user_id: userId,
+                name: expense.expenseName,
+                amount: parseFloat(expense.expenseAmount),
                 category: expense.expenseCategory,
                 note: expense.expenseNote || "",
-                created_at: new Date().toISOString(), // ✅ Correct timestamp
+                created_at: new Date().toISOString(),
             };
 
             const { data, error } = await supabase
-                .from("Expenses") 
+                .from("Expenses")
                 .insert([newExpense]);
 
             if (error) throw error;
@@ -64,15 +70,19 @@ const ExpenseAdder = () => {
                 expenseNote: "",
             });
 
+            console.log("Expense added successfully!");
             // toast.success("Expense added successfully!");
+            toast.success("Expense added sucessfully!")
         } catch (err) {
             console.error("Error adding expense:", err.message);
+            console.log("Oops! There was some error")
             // toast.error("Failed to add expense.");
         }
     };
 
     return (
         <div className="container">
+            <ToastContainer/>
             <h1>Add Expense</h1>
             <form id="expense-form" method="POST" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Expense Name" name="expenseName" value={expense.expenseName} onChange={handleChange} required />
@@ -90,9 +100,9 @@ const ExpenseAdder = () => {
                     <option value="Shopping">Shopping</option>
                     <option value="Others">Others</option>
                 </select>
-                <input type="date" name="expenseDate" value={expense.expenseDate} onChange={handleChange} required />
+                <input type="date" name="expenseDate" value={expense.expenseDate} onChange={handleChange}/>
                 <input type="text" name="expenseNote" placeholder="Optional Note" value={expense.expenseNote} onChange={handleChange} />
-                <button type="submit" onSubmit={handleSubmit}>Add Expense</button>
+                <button type="submit">Add Expense</button>
             </form>
         </div>
     );

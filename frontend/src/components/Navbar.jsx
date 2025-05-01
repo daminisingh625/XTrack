@@ -47,10 +47,6 @@ const toggleMode = () => {
     // Listen for authentication state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsLoggedIn(!!session);
-      if (session) {
-        // Navigate to home page upon successful login
-        navigate("/dashboard");
-      }
     });
 
     // Cleanup subscription on component unmount

@@ -35,6 +35,7 @@ function Signup() {
   };
 
   return (
+<<<<<<< HEAD
      <div className="login-container">
           {/* <section className="login-section"> */}
     
@@ -97,6 +98,32 @@ function Signup() {
     //     </button>
     //   </form>
     // </div>
+=======
+    <div className="signup-container">
+      <form className="signup-form" onSubmit={handleSignup}>
+        <h2>Sign Up</h2>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit" className="signup-button" onSubmit={handleSignup}>
+          Sign Up
+        </button>
+      </form>
+    </div>
+>>>>>>> 7e97943d210b3bd0d0c21ab371d30d16f6c74e80
   );
 }
 

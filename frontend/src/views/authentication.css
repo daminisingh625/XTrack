@@ -1,15 +1,16 @@
-  /* Login Container */
+  /* Login Container
+ 
   .login-container {
     display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     height: 100%;
     width: 100%;
     margin-top: 25vh;
-  }
+  } */
   
   /* Login Form */
-  .login-form {
+  /* .login-form {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -56,31 +57,50 @@
   
   .login-button:hover {
     background-color: #1c5980;
-  }
+  } */
   /*Styling for signup form*/
   /* General Styles */
-body {
+/* body {
   background-color: #f4f7fc;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  margin: 0;} */
+
+
+/* Login side img */
+/* .login-right{
+  display: flex;
+  align-items: center;
+  justify-content : flex-start;
 }
 
+.login-img{
+  overflow: hiddenlogin;
+  height: 57vh;
+}
+
+.login-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+
 /* Signup Container */
-.signup-container {
+/* .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
   margin-top: 20vh;
-}
+} */
 
 /* Signup Form */
-.signup-form {
+/* .signup-form {
   background-color: #fff;
   padding: 2rem;
   border-radius: 10px;
@@ -127,4 +147,48 @@ body {
 
 .signup-button:hover {
   background-color: #1c5980;
+} */
+
+/* Main container - centers content on page */
+.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background:linear-gradient(to right , rgb(76, 195, 255),rgb(1, 82, 139));
+}
+
+.login-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 50%;
+  /* background: blue; */
+}
+
+.login-form{
+  width: 300px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-right{
+display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 50%;
+  /* background:linear-gradient(to right , rgb(76, 195, 255),rgb(1, 82, 139)); */
+}
+.mylogin{
+  width: 600px;
+  height: 600px;
 }

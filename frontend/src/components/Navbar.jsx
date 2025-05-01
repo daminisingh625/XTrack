@@ -4,9 +4,34 @@ import { CiSun } from "react-icons/ci";
 import { FaRegMoon, FaRegBell } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
+import xtrack from "../assets/xtrack.jpg";
 import { supabase } from "../superbaseClient.js";
 
+
+
+
 export default function Navbar() {
+
+//creation on dark mode and light mode
+const[state , setState] = useState("light-mode");
+
+const change = () => {
+  if(state === "light-mode"){
+    setState("dark-mode")
+  }else{
+    setState("light-mode")
+  }
+}
+
+
+useEffect(()=>{
+  document.body.className = state;
+},[state])
+
+const toggleMode = () => {
+  setState((prev) => (prev === "light-mode" ? "dark-mode" : "light-mode"));
+};
+
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -53,13 +78,15 @@ export default function Navbar() {
       <ToastContainer />
       <div id="navbar">
         <div className="logo-container">
-          <p>XTrack</p>
+        <img src={xtrack} alt="Logo" style={{width:'9rem'}}/>
+          
         </div>
         <div className="nav-links">
           <div className="icons">
             <button className="nav-icons"><FaRegBell /></button>
             <button className="nav-icons"><CiSun /></button>
-            <button className="nav-icons"><FaRegMoon /></button>
+            <button className="nav-icons" onClick={change}><FaRegMoon /></button>
+
           </div>
           {!isLoggedIn ? (
             <Link to="/login">

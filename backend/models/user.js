@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+//not used not 
 const userSchema = new Schema({
     username: {
         required: true,

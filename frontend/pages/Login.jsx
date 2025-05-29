@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useState, useEffect} from "react";
 import { supabase } from "../src/superbaseClient.js";
 import { toast } from "react-toastify";
@@ -53,7 +54,6 @@ function Login() {
       toast.error(error.message);
     } else {
       toast.success("Login successful!");
-      // No need to navigate here; onAuthStateChange will handle it
     }
   };
 
@@ -80,6 +80,7 @@ function Login() {
         <button type="submit" className="login-button">
           Login
         </button>
+       <Link to="/signup">Don't have an account</Link>
       </form>
     </div>
   );

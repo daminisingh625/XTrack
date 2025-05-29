@@ -157,6 +157,7 @@
   height: 100vh;
   width: 100vw;
   background:linear-gradient(to right , rgb(76, 195, 255),rgb(1, 82, 139));
+  /* background: rgb(36, 32, 32); */
 }
 
 .login-left{

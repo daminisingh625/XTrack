@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-/*styling for body*/
+
 .main-body{
   height: 100%;
   width: 100%;
@@ -15,6 +15,16 @@
   flex-direction: column;
   padding-top: 7%;
 }
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 /* Navbar Styles */
 #navbar {
   height: 10vh;
@@ -29,6 +39,8 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  /* background-color:inharit;
+  color: inherit; */
 }
 
 .logo-container {
@@ -42,10 +54,18 @@
   color: #333;
 }
 
-.nav-links {
+/* .nav-links {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+} */
+.nav-links button {
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .icons {
@@ -139,3 +159,4 @@
   background-color: white;
   overflow-y: auto;
 }
+

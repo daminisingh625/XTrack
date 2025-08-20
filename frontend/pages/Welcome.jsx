@@ -42,7 +42,7 @@ function App() {
         <Navbar isAuthenticated={isAuthenticated} />
       </header>
       <div className="app-root-container">
-        {/* Define your Routes here */}
+        
       </div>
     </div>
   );

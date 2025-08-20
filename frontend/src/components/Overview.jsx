@@ -4,7 +4,7 @@ import "../views/overview.css";
 export default function Overview() {
     return (
         <div className="money-spent">
-            <h1>You've spent <span className="spent-amount">$500</span> of <span className="total-amount">$1000</span></h1>
+            <h1>You've spent <span className="spent-amount"></span> of <span className="total-amount"></span></h1>
             <div className="grid-container">
                 <div className="grid-item">
                     <h2>Food</h2>

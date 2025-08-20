@@ -1,57 +1,62 @@
 .sidebar {
-    width: 30vw;
-    height: 90vh;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding:15px;
-    position: fixed;
-    left: 0;
-   bottom: 0;
-    transition: width 0.3s ease-in-out;
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-    border-left: #444;
+  width: 30vw;
+  height: 90vh;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+  border-left: #444;
+}
+/* Base sidebar untouched */
+
+/* Menu container */
+.sidebar_menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-
-.sidebar_manu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Extra space between items */
+.link_space {
+  margin-bottom: 16px;   /* was 10px, now more */
 }
 
-.sidebar_manu li {
-    padding: 25px;
-    font-size: large;
-    border-bottom: 1px solid #444;
+/* List items */
+.link_space li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 18px;    /* increased vertical padding */
+  border-radius: 10px;
+  font-size: 1.3rem;     /* larger text */
+  font-weight: 500;
+  color: #2F4C84;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.sidebar_manu a {
-    /* color: rgb(0, 0, 142); */
-    color: rgb(15, 60, 185);
-    text-decoration: none;
-    display: block;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Make Link take full width */
+.link_space a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
-.sidebar_manu a:hover {
-    color: rgb(0, 0, 142);
+/* Icon styling */
+.link_space li svg {
+  font-size: 1.6rem;     /* increased to match bigger text */
+  color: #1178D1;
 }
 
-.app-body{
-    height: 90vh;
-    width: 100vw;
-    display: flex;
-    margin-top: 10vh;
-}
-.App-sidebar{
-    height: 100%;
-    background-color: red;
-    width: 40vw;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    background-color: green;
+/* Hover effect */
+.link_space li:hover {
+  background: rgba(17, 120, 209, 0.08);
+  color: #1178D1;
+  transform: translateX(3px);
 }

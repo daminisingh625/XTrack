@@ -1,9 +1,86 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { supabase } from "../src/superbaseClient.js";
+// import { toast } from "react-toastify";
+// import "../src/views/authentication.css";
+// import myloginGif from "../src/assets/myloginGif.gif";
+// function Signup() {
+//   const navigate = useNavigate();
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSignup = async (e) => {
+//     e.preventDefault();
+
+//     const { email, password } = formData;
+
+//     const { data, error } = await supabase.auth.signUp({
+//       email,
+//       password,
+//     });
+
+//     if (error) {
+//       toast.error(error.message);
+//     } else {
+//       toast.success("Signup successful! Please verify your email.");
+//       localStorage.setItem("user", JSON.stringify(data));
+//       navigate("/dashboard");
+//     }
+//   };
+
+//   return (
+
+//      <div className="login-container">
+//           {/* <section className="login-section"> */}
+    
+//           <div className="login-left">
+//           <form className="login-form" onSubmit={handleLogin}>
+//             <h2>Sign Up</h2>
+//             <input
+//               type="email"
+//               name="email"
+//               placeholder="Email"
+//               value={formData.email}
+//               onChange={handleChange}
+//               required
+//             />
+//             <input
+//               type="password"
+//               name="password"
+//               placeholder="Password"
+//               value={formData.password}
+//               onChange={handleChange}
+//               required
+//             />
+//             <button type="submit" className="login-button">
+//               Sign Up
+//             </button>
+//           </form>
+//                 </div>
+                
+//                 <div className="login-right">
+//                  <div className="login-img">
+//                  <img className="mylogin" src={myloginGif} alt="loading animation" />
+//                     {/* <img src={welcomeimg} alt="Welcome" className="login-image" /> */}
+//                  </div>
+//                 </div>
+    
+//           {/* </section> */}
+          
+//         </div>
+  import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../src/superbaseClient.js";
 import { toast } from "react-toastify";
 import "../src/views/authentication.css";
 import myloginGif from "../src/assets/myloginGif.gif";
+
 function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -28,76 +105,45 @@ function Signup() {
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success("Signup successful! Please verify your email.");
+      toast.success("Signup successful! Please check your email to verify.");
       localStorage.setItem("user", JSON.stringify(data));
-      navigate("/dashboard");
+      navigate("/login"); // redirect to login after signup
     }
   };
 
   return (
+    <div className="login-container">
+      <div className="login-left">
+        <form className="login-form" onSubmit={handleSignup}>
+          <h2>Sign Up</h2>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="login-button">
+            Sign Up
+          </button>
+        </form>
+      </div>
 
-     <div className="login-container">
-          {/* <section className="login-section"> */}
-    
-          <div className="login-left">
-          <form className="login-form" onSubmit={handleLogin}>
-            <h2>Sign Up</h2>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit" className="login-button">
-              Sign Up
-            </button>
-          </form>
-                </div>
-                
-                <div className="login-right">
-                 <div className="login-img">
-                 <img className="mylogin" src={myloginGif} alt="loading animation" />
-                    {/* <img src={welcomeimg} alt="Welcome" className="login-image" /> */}
-                 </div>
-                </div>
-    
-          {/* </section> */}
-          
+      <div className="login-right">
+        <div className="login-img">
+          <img className="mylogin" src={myloginGif} alt="loading animation" />
         </div>
-    // <div className="signup-container">
-    //   <form className="signup-form" onSubmit={handleSignup}>
-    //     <h2>Sign Up</h2>
-    //     <input
-    //       type="email"
-    //       name="email"
-    //       placeholder="Email"
-    //       value={formData.email}
-    //       onChange={handleChange}
-    //       required
-    //     />
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       placeholder="Password"
-    //       value={formData.password}
-    //       onChange={handleChange}
-    //       required
-    //     />
-    //     <button type="submit" className="signup-button">
-    //       Sign Up
-    //     </button>
-    //   </form>
-    // </div>
+      </div>
+    </div>
   );
 }
 

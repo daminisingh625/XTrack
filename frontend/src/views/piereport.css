@@ -1,5 +1,8 @@
 .pie-report{
     width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

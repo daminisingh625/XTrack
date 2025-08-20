@@ -9,40 +9,56 @@ import { Link } from 'react-router-dom';
 export default function Sidebar() {
     return (
         <div className='sidebar'>
-            <div className='sidebar_manu'>
+            <div className='sidebar_menu'>
                 <ul>
 
-                    <Link to="/dashboard">
-                        <li><MdDashboard size={20} /> Dashboard</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/dashboard">
+                            <li><MdDashboard size={20} /> Dashboard</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/add-expense">
-                        <li><FaMoneyBillWave size={20} /> Add Expense</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/add-expense">
+                            <li><FaMoneyBillWave size={20} /> Add Expense</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/bank-details">
-                        <li><MdCommentBank size={20} /> Bank Details</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/bank-details">
+                            <li><MdCommentBank size={20} /> Bank Details</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/reports">
-                        <li><TbReportAnalytics size={20} /> Reports & Analytics</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/reports">
+                            <li><TbReportAnalytics size={20} /> Reports & Analytics</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/budget-planner">
-                        <li><FaCalendarAlt size={20} /> Budget Planner</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/budget-planner">
+                            <li><FaCalendarAlt size={20} /> Budget Planner</li>
+                        </Link>
+                    </div>
 
-                    <Link to="bill-reminders">
-                        <li><FaReceipt size={20} /> Bill Reminders</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/bill-reminders">
+                            <li><FaReceipt size={20} /> Bill Reminders</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/categories">
-                        <li><MdCategory size={20} /> Categories</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/categories">
+                            <li><MdCategory size={20} /> Categories</li>
+                        </Link>
+                    </div>
 
-                    <Link to="/recurring-expenses">
-                        <li><TiArrowLoopOutline size={20} /> Recurring Expenses</li>
-                    </Link>
+                    <div className="link_space">
+                        <Link to="/recurring-expenses">
+                            <li><TiArrowLoopOutline size={20} /> Recurring Expenses</li>
+                        </Link>
+                    </div>
 
                 </ul>
             </div>

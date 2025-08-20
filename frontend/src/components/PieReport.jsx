@@ -59,8 +59,8 @@ export default function PieReport() {
   }, [selectedMonth, selectedYear, data]);
 
   return (
+    <><h2>Category Distribution</h2>
     <div className="pie-report">
-      <h2>Category Distribution</h2>
 
       {/* Month and Year Filters */}
       <div className="filters">
@@ -97,5 +97,6 @@ export default function PieReport() {
         <p>No data available for the selected month.</p>
       )}
     </div>
+    </>
   );
 }
